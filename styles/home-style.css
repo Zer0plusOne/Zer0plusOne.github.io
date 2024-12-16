@@ -1,0 +1,138 @@
+body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+.header {
+    background-color: #161b22;
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+
+.navbar {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #6a29e2;
+    font-weight: bold;
+    padding: 12px 25px;
+    background-color: #161b22;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #58ff7c;
+    color: #161b22;
+    transform: scale(1.1);
+}
+
+
+.home-section {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-color: #0d1117;
+    flex-direction: row;
+}
+
+.home-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.text-half {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background-image: url('/imgs/back_dedsec.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+}
+
+
+.text-half h1 {
+    font-size: 5rem;
+    font-family: 'Pixelify Sans';
+    text-shadow: 0 0 15px rgba(40, 236, 99, 0.8);
+}
+
+.text-half h2 {
+    font-size: 4rem;
+    font-family: 'Jacquard 24';
+    letter-spacing: 3px;
+    color: #0a9b4b;
+    margin-top: 15px;
+}
+
+.readme-half {
+    flex: 1;
+    font-family: 'Roboto', sans-serif;
+    background-color: #161b22;
+    color: #ffffff;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.readme-half h3 {
+    font-size: 2rem;
+    font-family: 'Arial';
+    color: #840fa1;
+    margin-bottom: 20px;
+}
+
+
+.social-links {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #161b22;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    z-index: 200;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #58a6ff;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.social-links a:hover {
+    color: #1f6feb;
+}
