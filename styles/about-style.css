@@ -1,0 +1,117 @@
+body {
+    background-image: url('/imgs/back_dedsec.jpeg');
+    color: #c9d1d9;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.header {
+    background-color: #161b22;
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #6a29e2;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.navbar a.active,
+.navbar a:hover {
+    background-color: #58ff7c;
+    color: #161b22;
+    transform: scale(1.1);
+}
+
+.about-section {
+    margin-top: 70px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about-container {
+    max-width: 800px;
+    background-color: #161b22;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+    font-size: 3rem;
+    color: #f1ee0f;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 305px;
+    font-family: 'Jacquard 24';
+    letter-spacing: 3px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #6a29e2;
+    margin-top: 20px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+p.intro {
+    font-size: 1.2rem;
+    color: #9a9a9a;
+}
+
+.highlight {
+    color: #58ff7c;
+    font-weight: bold;
+}
+
+ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    list-style: disc;
+}
+
+footer {
+    background-color: #161b22;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer a {
+    color: #58a6ff;
+    text-decoration: none;
+    font-weight: bold;
+    
+}
+
+footer a:hover {
+    color: #58ff7c;
+}
