@@ -1,0 +1,272 @@
+/* certifications-style.css */
+body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: hidden;
+}
+
+.header {
+    background-color: #161b22ee;
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #6a29e2;
+    box-shadow: 0 0 25px rgba(106, 41, 226, 0.3);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #58ff7c;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.navbar a:hover {
+    background: #6a29e233;
+    border-color: #58ff7c;
+    text-shadow: 0 0 15px #58ff7c;
+    transform: translateY(-2px);
+}
+
+.navbar a[href="certifications.html"] {
+    background: #6a29e266;
+    border-color: #58ff7c;
+    box-shadow: 0 0 15px rgba(88, 255, 124, 0.3);
+}
+
+.certifications-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    min-height: 100vh;
+    padding: 150px 40px 80px;
+    gap: 30px;
+}
+
+.certifications-header {
+    position: sticky;
+    top: 150px;
+    height: fit-content;
+    padding: 30px;
+    border-right: 3px solid #6a29e2;
+    text-shadow: 0 0 15px rgba(40, 236, 99, 0.4);
+    /* Nuevos estilos para imagen de fondo */
+    background-image: linear-gradient(rgba(13, 17, 23, 0.0), rgba(13, 17, 23, 0.7)), url('/imgs/back_dedsec.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 70vh;
+}
+
+.certifications-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(
+        to bottom,
+        rgba(106, 41, 226, 0.4) 0%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+.certifications-header h1 {
+    font-family: 'Pixelify Sans';
+    transform: translateY(25%);
+    padding-bottom: 0;
+    margin-bottom: -15px;
+    font-size: 4rem;
+    color: #00ff37;
+    margin-bottom: 20px;
+}
+
+.certifications-header h2 {
+    font-family: 'Jacquard 24';
+    margin-top: -1px;
+    font-size: 3.7rem;
+    color: #7a3ee7;
+    letter-spacing: 3px;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    align-content: start;
+}
+
+.certification-card {
+    background: #161b22;
+    border: 1px solid #6a29e255;
+    border-radius: 8px;
+    padding: 25px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+    border-color: #58ff7c;
+    box-shadow: 0 0 25px rgba(88, 255, 124, 0.2);
+}
+
+.certification-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 10px;
+    z-index: -1;
+    background: linear-gradient(45deg, 
+        rgba(106, 41, 226, 0.8), 
+        rgba(88, 255, 124, 0.5), 
+        transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.certification-card:hover::before {
+    opacity: 1;
+}
+
+.certification-title {
+    font-family: 'Pixelify Sans';
+    color: #58ff7c;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.certification-issuer {
+    color: #6a29e2;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.certification-details {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #30363d;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    color: #8b949e;
+}
+
+.detail-label {
+    color: #58a6ff;
+}
+
+.specializations {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+@keyframes neon-pulse {
+    0% { text-shadow: 0 0 10px #58ff7c; }
+    50% { text-shadow: 0 0 20px #58ff7c, 0 0 30px #6a29e2; }
+    100% { text-shadow: 0 0 10px #58ff7c; }
+}
+
+.neon-text {
+    animation: neon-pulse 2s infinite;
+}
+
+@media (max-width: 768px) {
+    .certifications-section {
+        grid-template-columns: 1fr;
+        padding: 130px 20px 80px;
+    }
+    
+    .certifications-header {
+        border-right: none;
+        border-bottom: 3px solid #6a29e2;
+        padding-bottom: 40px;
+        position: static;
+    }
+    
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .navbar ul {
+        gap: 8px;
+        justify-content: center;
+    }
+    
+    .navbar a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .certifications-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .certifications-header h2 {
+        font-size: 2.2rem;
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+    background-color: #161b22;
+    padding: 15px 0;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.social-links a {
+    color: #58a6ff;
+    text-decoration: none;
+    font-family: 'Pixelify Sans';
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #58ff7c;
+    text-shadow: 0 0 15px rgba(88, 255, 124, 0.4);
+}
