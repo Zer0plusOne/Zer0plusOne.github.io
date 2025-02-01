@@ -1,3 +1,12 @@
+/* tools-style.css */
+body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: hidden;
+}
+
+/* Header */
 .header {
     background-color: #161b22ee;
     backdrop-filter: blur(10px);
@@ -40,11 +49,7 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid transparent;
 }
-.navbar a[href="tools.html"] {
-    background: #6a29e266;
-    border-color: #58ff7c;
-    box-shadow: 0 0 15px rgba(88, 255, 124, 0.3);
-}
+
 .navbar a:hover {
     background: #6a29e233;
     border-color: #58ff7c;
@@ -52,48 +57,95 @@
     transform: translateY(-2px);
 }
 
-.under-development {
-    background-image: url('/imgs/back_dedsec.jpeg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.navbar a[href="tools.html"] {
+    background: #6a29e266;
+    border-color: #58ff7c;
+    box-shadow: 0 0 15px rgba(88, 255, 124, 0.3);
+}
+
+
+/* Sección de herramientas */
+.tools-section {
+    padding: 150px 20px 100px;
     text-align: center;
-    color: white;
 }
 
-.under-development-content {
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+.neon-title {
+    font-family: 'Pixelify Sans';
+    font-size: 4rem;
+    color: #58ff7c;
+    text-shadow: 0 0 25px #58ff7c;
+    margin-bottom: 50px;
 }
 
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
 
-.under-development-title {
-    font-family: 'Jacquard 24', sans-serif;
+.tool-card {
+    background: rgba(22, 27, 34, 0.9);
+    border: 1px solid #6a29e255;
+    border-radius: 15px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tool-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(88, 255, 124, 0.3);
+    border-color: #58ff7c;
+}
+
+.tool-icon {
     font-size: 3rem;
-    color: #ffcc00;
+    margin-bottom: 20px;
+    color: #58ff7c;
+    text-shadow: 0 0 15px #58ff7c;
+}
+
+.tool-title {
+    font-family: 'Pixelify Sans';
+    font-size: 1.8rem;
+    color: #58ff7c;
+    margin-bottom: 15px;
+}
+
+.tool-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #8b949e;
     margin-bottom: 20px;
 }
 
-
-.under-development-text {
-    font-family: 'Pixelify Sans', sans-serif;
-    font-size: 2rem;
-    color: #ffffff;
-    letter-spacing: 2px;
+.tool-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #6a29e2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
+.tool-link:hover {
+    background: #58ff7c;
+    color: #161b22;
+    box-shadow: 0 0 15px #58ff7c;
+}
+
+/* Footer */
 footer {
+    background-color: #161b22;
+    padding: 15px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 2;
-    background-color: #161b22;
-    padding: 15px 0;
+    z-index: 1000;
 }
 
 .social-links {

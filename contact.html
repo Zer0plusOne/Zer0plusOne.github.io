@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/gif" href="imgs/icon.jpg">
-    <title>Zer0PlusOne's Web</title>
-    <link href="https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap" rel="stylesheet">
+    <title>Contact - Zer0PlusOne</title>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/contact-style.css">
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
         <nav class="navbar">
             <ul>
@@ -23,15 +23,45 @@
                 <li><a href="community.html">Community</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+        </nav>
     </header>
 
-
-    <section class="under-development">
-        <div class="under-development-content">
-            <h1 class="under-development-title">Zer0PlusOne</h1>
-            <p class="under-development-text">Under Development</p>
+    <!-- Reproductor oscuro con botón "Press_Me" -->
+    <div id="video-overlay">
+        <div id="video-container">
+            <iframe
+                id="youtube-video"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/RYuesoKNULg?si=r-QJdG0_ty10b0RB&amp;controls=0&amp;clip=UgkxRzfsz5pGFOO1l2qcfSUNrVzZHLd3P6Wu&amp;clipt=ELuzBhj0hgg"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+            <button id="play-button">Press_Me</button>
         </div>
-    </section>
+    </div>
+
+    <!-- Tarjeta estática (oculta inicialmente) -->
+    <div id="static-card" class="hidden">
+        <div class="profile">
+            <img src="https://avatars.githubusercontent.com/u/82466341?v=4" alt="Profile Picture" class="profile-pic">
+            <h1 class="profile-name">Zer0PlusOne</h1>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/Zer0PlusOne" target="_blank">
+                <img src="https://pngimg.com/uploads/github/github_PNG88.png" alt="GitHub">
+            </a>
+            <a href="https://x.com/ASteam_Zer0" target="_blank">
+                <img src="https://static.vecteezy.com/system/resources/previews/027/395/710/original/twitter-brand-new-logo-3-d-with-new-x-shaped-graphic-of-the-world-s-most-popular-social-media-free-png.png" alt="Twitter">
+            </a>
+            <a href="https://www.instagram.com/sanchez_g2k04/" target="_blank">
+                <img src="https://wallpapers.com/images/featured/instagram-logo-vector-png-ir8f58dvmxlfkgac.jpg" alt="Instagram">
+            </a>
+        </div>
+    </div>
 
     <footer>
         <div class="social-links">
@@ -41,7 +71,6 @@
         </div>
     </footer>
 
-    <script src="/libs/marked.min.js"></script>
-    <script src="scripts/scripts.js"></script>
+    <script src="scripts/contact-script.js"></script>
 </body>
 </html>
