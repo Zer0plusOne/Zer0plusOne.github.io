@@ -17,12 +17,19 @@ const LANGUAGE_LABELS = {
     en: "EN"
 };
 const PINNED_WELCOME_FILENAME = "welcome.md";
+const GRID_LIMITS = {
+    normal: { maxColumns: 10, maxRows: 9, targetCellPx: 260 },
+    lite: { maxColumns: 8, maxRows: 6, targetCellPx: 340 }
+};
 
 let bookItems = [];
 let currentLanguage = null;
+let gridResizeTimer = null;
 
 document.addEventListener("DOMContentLoaded", () => {
+    enablePerformanceMode();
     buildBackgroundGrid();
+    bindViewportHandlers();
     bindUI();
     loadBookshelf();
 });
@@ -33,8 +40,20 @@ function buildBackgroundGrid() {
         return;
     }
 
+    const isLiteMode = document.body.classList.contains("perf-lite");
+    const limits = isLiteMode ? GRID_LIMITS.lite : GRID_LIMITS.normal;
+    const viewportWidth = Math.max(window.innerWidth || 0, document.documentElement.clientWidth || 0);
+    const viewportHeight = Math.max(window.innerHeight || 0, document.documentElement.clientHeight || 0);
+
+    const columns = clamp(Math.ceil(viewportWidth / limits.targetCellPx), 4, limits.maxColumns);
+    const rows = clamp(Math.ceil(viewportHeight / limits.targetCellPx), 3, limits.maxRows);
+    const totalCells = columns * rows;
+
+    grid.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+
     const fragment = document.createDocumentFragment();
-    for (let i = 0; i < 110; i += 1) {
+    for (let i = 0; i < totalCells; i += 1) {
         const cell = document.createElement("div");
         cell.className = "grid-cell";
         fragment.appendChild(cell);
@@ -42,6 +61,31 @@ function buildBackgroundGrid() {
 
     grid.innerHTML = "";
     grid.appendChild(fragment);
+}
+
+function bindViewportHandlers() {
+    window.addEventListener(
+        "resize",
+        () => {
+            if (gridResizeTimer) {
+                window.clearTimeout(gridResizeTimer);
+            }
+            gridResizeTimer = window.setTimeout(() => {
+                buildBackgroundGrid();
+            }, 120);
+        },
+        { passive: true }
+    );
+}
+
+function enablePerformanceMode() {
+    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const lowCoreCount = typeof navigator.hardwareConcurrency === "number" && navigator.hardwareConcurrency <= 4;
+    const lowMemoryDevice = typeof navigator.deviceMemory === "number" && navigator.deviceMemory <= 4;
+
+    if (reduceMotion || lowCoreCount || lowMemoryDevice) {
+        document.body.classList.add("perf-lite");
+    }
 }
 
 function bindUI() {
@@ -646,4 +690,8 @@ function escapeHtml(value) {
         .replace(/>/g, "&gt;")
         .replace(/\"/g, "&quot;")
         .replace(/'/g, "&#039;");
+}
+
+function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
 }
