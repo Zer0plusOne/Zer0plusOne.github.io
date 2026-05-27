@@ -161,3 +161,65 @@ footer {
     color: #58ff7c;
     text-shadow: 0 0 15px rgba(88, 255, 124, 0.4);
 }
+
+.docs-card {
+    margin-top: 20px;
+    max-width: 520px;
+    background: rgba(13, 17, 23, 0.75);
+    border: 1px solid #58ff7c;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 0 15px rgba(88, 255, 124, 0.2);
+}
+
+.docs-card h3 {
+    margin: 0 0 8px;
+    font-family: 'Pixelify Sans', sans-serif;
+    color: #58ff7c;
+    font-size: 1.7rem;
+}
+
+.docs-card p {
+    margin: 0 0 14px;
+    color: #c9d1d9;
+    font-size: 1rem;
+}
+
+.docs-button {
+    display: inline-block;
+    text-decoration: none;
+    color: #0d1117;
+    background: #58ff7c;
+    border: 1px solid #58ff7c;
+    border-radius: 6px;
+    font-family: 'Pixelify Sans', sans-serif;
+    padding: 8px 14px;
+    transition: all 0.3s ease;
+}
+
+.docs-button:hover {
+    background: transparent;
+    color: #58ff7c;
+    box-shadow: 0 0 12px rgba(88, 255, 124, 0.4);
+}
+
+@media (max-width: 1024px) {
+    .home-section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .home-content {
+        flex-direction: column;
+        padding-top: 88px;
+    }
+
+    .text-half,
+    .readme-half {
+        min-height: 50vh;
+    }
+
+    footer {
+        position: static;
+    }
+}
