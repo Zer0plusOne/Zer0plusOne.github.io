@@ -1,0 +1,14 @@
+{
+    "files": [
+        "welcome.md",
+        {
+            "id": "book-getting-started",
+            "title": "Getting Started",
+            "defaultLanguage": "es",
+            "variants": {
+                "es": "Getting Started.md",
+                "en": "Getting Started - ENG.md"
+            }
+        }
+    ]
+}

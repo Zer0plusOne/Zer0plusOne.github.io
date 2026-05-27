@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/blog-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
 </head>
 <body>
     <header class="header">
@@ -22,17 +23,41 @@
                 <li><a href="learning-roadmap.html">Roadmap</a></li>
                 <li><a href="community.html">Community</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="docs/">GitBook</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="grid-container"></div>
     <div class="grid-overlay"></div>
+    <div class="ambient ambient-left"></div>
+    <div class="ambient ambient-right"></div>
 
-    <section class="gitbook-message">
-        <h1 class="neon-pulse">Gitbook soon...</h1>
-    </section>
+    <main class="blog-shell">
+        <aside class="bookshelf-panel">
+            <div class="bookshelf-head">
+                <p class="panel-kicker">Bookshelf</p>
+                <h1>Zer0plusOne's Bookshelf</h1>
+                <p class="panel-description">My little personal library of markdown notes to be shared with you all.</p>
+                <p class="panel-instructions">All the <code>.md</code> files are available in the <code>/Bookshelf</code> directory on the repository in my personal github.</p>
+                <button id="refresh-books" class="refresh-button" type="button">Reload Index</button>
+            </div>
+            <div id="bookshelf-status" class="bookshelf-status" aria-live="polite"></div>
+            <nav id="book-list" class="book-list" aria-label="Bookshelf markdown files"></nav>
+        </aside>
+
+        <article class="reader-panel">
+            <header class="reader-head">
+                <div class="reader-head-top">
+                    <h2 id="reader-title">Waiting for your first chapter...</h2>
+                    <div id="language-switcher" class="language-switcher" aria-label="Language selector"></div>
+                </div>
+                <p id="reader-meta">Add <code>.md</code> files to <code>/Bookshelf</code> and they will show up here.</p>
+            </header>
+            <div id="reader-content" class="reader-content">
+                <p class="reader-placeholder">Selecciona un archivo para empezar a leer.</p>
+            </div>
+        </article>
+    </main>
 
     <footer>
         <div class="social-links">
@@ -42,12 +67,8 @@
         </div>
     </footer>
 
-    <script>
-        // Generar grid 11x10
-        const grid = document.querySelector('.grid-container');
-        for(let i = 0; i < 110; i++) {
-            grid.innerHTML += '<div class="grid-cell"></div>';
-        }
-    </script>
+    <script src="libs/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script src="scripts/blog-script.js"></script>
 </body>
 </html>
