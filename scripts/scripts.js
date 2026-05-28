@@ -156,11 +156,15 @@ function highlightReadmeCode(container) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    const readmeContainer = document.getElementById('github-readme');
+    if (!readmeContainer) {
+        return;
+    }
+
     fetch(README_RAW_URL)
         .then(response => response.text())
         .then(data => {
             const htmlContent = marked.parse(data);
-            const readmeContainer = document.getElementById('github-readme');
             readmeContainer.innerHTML = htmlContent;
             postProcessReadme(readmeContainer);
             highlightReadmeCode(readmeContainer);
