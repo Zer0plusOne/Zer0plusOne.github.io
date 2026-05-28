@@ -135,6 +135,11 @@ body {
     max-width: 100%;
 }
 
+#github-readme h3:empty {
+    display: none;
+    margin: 0;
+}
+
 #github-readme pre {
     margin: 14px 0;
     padding: 14px;
@@ -142,6 +147,7 @@ body {
     border: 1px solid #2b3442;
     background-color: #0d1117;
     overflow-x: hidden;
+    clear: both;
 }
 
 #github-readme code {

@@ -23,6 +23,22 @@ const README_RAW_BASE = `https://raw.githubusercontent.com/${README_SOURCE.owner
 const README_BLOB_BASE = `https://github.com/${README_SOURCE.owner}/${README_SOURCE.repo}/blob/${README_SOURCE.branch}/`;
 const GITHUB_BLOB_OR_RAW_RE = /^https?:\/\/github\.com\/([^/]+)\/([^/]+)\/(?:blob|raw)\/([^/]+)\/(.+)$/i;
 const ABSOLUTE_URL_RE = /^[a-zA-Z][a-zA-Z\d+\-.]*:/;
+const SKILL_CARD_OVERRIDES = [
+    {
+        filename: 'htbskillcard.svg',
+        src: 'https://raw.githubusercontent.com/Zer0plusOne/Zer0plusOne/main/SkillCards/HtbSkillCard.svg',
+        align: 'left',
+        height: '170',
+        marginBottom: '8px'
+    },
+    {
+        filename: 'defensiveskillcard.svg',
+        src: 'https://raw.githubusercontent.com/Zer0plusOne/Zer0plusOne/main/SkillCards/DefensiveSkillCard.svg',
+        align: 'center',
+        height: '190',
+        marginBottom: '8px'
+    }
+];
 
 function normalizeGithubAssetUrl(url) {
     if (!url) {
@@ -97,6 +113,33 @@ function postProcessReadme(container) {
         if (/^https?:\/\//i.test(normalizedHref)) {
             link.setAttribute('target', '_blank');
             link.setAttribute('rel', 'noopener noreferrer');
+        }
+    });
+
+    const imageOverrides = container.querySelectorAll('img[src]');
+    imageOverrides.forEach((img) => {
+        const source = (img.getAttribute('src') || '').toLowerCase();
+        const cardOverride = SKILL_CARD_OVERRIDES.find((rule) => source.includes(rule.filename));
+        if (!cardOverride) {
+            return;
+        }
+
+        img.setAttribute('src', cardOverride.src);
+        img.setAttribute('align', cardOverride.align);
+        img.setAttribute('height', cardOverride.height);
+
+        // Keep skillcards stable across browsers (align attribute is obsolete/inconsistent).
+        img.style.display = 'block';
+        img.style.float = 'left';
+        img.style.clear = 'left';
+        img.style.marginTop = '0';
+        img.style.marginRight = '0';
+        img.style.marginLeft = '0';
+        img.style.marginBottom = '0';
+
+        img.style.borderRadius = '7px';
+        if (cardOverride.marginBottom) {
+            img.style.marginBottom = cardOverride.marginBottom;
         }
     });
 }
